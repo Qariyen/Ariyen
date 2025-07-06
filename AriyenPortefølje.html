@@ -1,0 +1,788 @@
+﻿<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ariyen Qarlik - Kreativ Designer & Teknolog</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.1)"/><stop offset="100%" style="stop-color:rgba(255,255,255,0)"/></radialGradient></defs><circle cx="200" cy="300" r="100" fill="url(%23a)"/><circle cx="800" cy="200" r="150" fill="url(%23a)"/><circle cx="600" cy="700" r="120" fill="url(%23a)"/></svg>');
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 2;
+      position: relative;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .profile-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+      margin: 0 auto 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      animation: pulse 2s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-image::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #f50c0c, #4ecdc4, #45b7d1, #ff6b6b);
+      border-radius: 50%;
+      z-index: -1;
+      animation: rotate 3s linear infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #ffffff, #f0f0f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+
+    /* Main Content */
+    .main-content {
+      background: #0a0a0a;
+      position: relative;
+      z-index: 1;
+      border-radius: 30px 30px 0 0;
+      margin-top: -30px;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      border-radius: 2px;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .skill-card {
+      background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #ff6b6b);
+      border-radius: 20px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-card:hover::before {
+      opacity: 0.3;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      background: linear-gradient(145deg, #222222, #1a1a1a);
+    }
+
+    .skill-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .skill-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .skill-card p {
+      color: #cccccc;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #ff6b6b);
+      border-radius: 20px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover::before {
+      opacity: 0.3;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      background: linear-gradient(145deg, #222222, #1a1a1a);
+    }
+
+    .project-tag {
+      display: inline-block;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .project-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .project-card p {
+      color: #cccccc;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .project-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #4ecdc4;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Project Images */
+    .project-images {
+      display: flex;
+      gap: 1rem;
+      margin: 1rem 0;
+      justify-content: center;
+    }
+
+    .project-image {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(145deg, #333333, #222222);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .project-image:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Other Projects Section */
+    .other-projects {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .other-projects h3 {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #ffffff;
+    }
+
+    .other-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .other-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .other-image::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #ff6b6b);
+      border-radius: 15px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .other-image:hover::before {
+      opacity: 0.3;
+    }
+
+    .other-image:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      background: linear-gradient(145deg, #222222, #1a1a1a);
+    }
+
+    /* Contact Section */
+    .contact {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .contact h2 {
+      color: white;
+      margin-bottom: 2rem;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.1);
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.2);
+    }
+
+    .contact-item a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Scroll animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .animate-on-scroll.delay-1 { animation-delay: 0.2s; }
+    .animate-on-scroll.delay-2 { animation-delay: 0.4s; }
+    .animate-on-scroll.delay-3 { animation-delay: 0.6s; }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="profile-image">
+      🚀
+    </div>
+    <h1>Ariyen Qarlik</h1>
+    <p>Kreativ Designer • Teknolog • Innovatør</p>
+    <span>⬇️</span>
+  </div>
+</section>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- About Section -->
+    <section class="section">
+      <h2>Om Meg</h2>
+      <p style="text-align: center; font-size: 1.1rem; color: #cccccc; max-width: 600px; margin: 0 auto;">
+        Jeg brenner for innovasjon og teknologi. Fra app-design til 3D-modellering, fra videoprodusjoner til produktutvikling - jeg elsker å skape løsninger som gjør en forskjell. Jeg brenner for å skape noe nytt, og drømmen er kanskje til og med å starte min egen bedrift og bygge opp noe unikt fra bunnen av!
+      </p>
+    </section>
+
+    <!-- Skills Section -->
+<section class="section" id="skills">
+  <h2>Mine Ferdigheter</h2>
+  <div class="skills-grid">
+    <div class="skill-card animate-on-scroll">
+      <img src="FIGMA.png" alt="Figma ikon" class="skill-icon">
+      <h3>Figma</h3>
+      <p>Skybasert designverktøy for prototyping og designsystemer. Bruker dette til app-design og mockups.</p>
+    </div>
+        <div class="skill-card animate-on-scroll">
+      <img src="SHAPR.jpeg" alt="Vibe Coder ikon" class="skill-icon">
+      <h3>Shapr3D</h3>
+      <p>Lager 3D-modeller i Shapr3D og forberedt utskrifter i Ultimaker Cura</p>
+    </div>
+    <div class="skill-card animate-on-scroll delay-1">
+      <img src="THNK.jpg" alt="Tinkercad ikon" class="skill-icon">
+      <h3>Tinkercad</h3>
+      <p>Brukervennlig 3D-designapp som jeg bruker for 3D-modellering og prototyping av produkter.</p>
+    </div>
+    <div class="skill-card animate-on-scroll delay-2">
+      <img src="capcut.png" alt="CapCut ikon" class="skill-icon">
+      <h3>CapCut</h3>
+      <p>Videobehandling og produksjon. Har laget markedsføringsvideoer med over 77k visninger på TikTok.</p>
+    </div>
+    <div class="skill-card animate-on-scroll delay-3">
+      <img src="PIXLR.png" alt="Pixlr ikon" class="skill-icon">
+      <h3>Pixlr</h3>
+      <p>Bilderedigering og grafisk design. Bruker dette til å lage kreative thumbnails og visuelt innhold.</p>
+    </div>
+    <div class="skill-card animate-on-scroll delay-1">
+      <img src="ULTIMAKER.png" alt="UltiMaker Cura ikon" class="skill-icon">
+      <h3>UltiMaker Cura</h3>
+      <p>3D-printing software for å forberede og optimalisere 3D-modeller for utskrift.</p>
+    </div>
+    <div class="skill-card animate-on-scroll delay-3">
+      <img src="vibe.png" alt="Pixlr ikon" class="skill-icon">
+      <h3>Vibe Coder</h3>
+      <p>Bruker AI-verktøy for å kode og utvikle nettsider. HTML, CSS og JavaScript. Som denne siden her! den er mesteparten 
+        kodet ved hjelp av Claude AI jeg bare legger til beskrivelser, bilder og publiserer siden. </p>
+    </div>
+    <div class="skill-card animate-on-scroll delay-3">
+      <img src="PIKI.png" alt="Pixlr ikon" class="skill-icon">
+      <h3>PikiMov</h3>
+      <p>Redigerer i PikMov en litt mer avansert redigering verktøy en Capcut, der man kan rediger i 3D</p>
+    </div>
+    <div class="skill-card animate-on-scroll delay-3">
+      <img src="M365.jpg" alt="Pixlr ikon" class="skill-icon">
+      <h3>Microsoft 365</h3>
+      <p>Jeg har solid kompetanse i bruk av flere Microsoft 365-apper, inkludert Word, PowerPoint, Forms, Excel og OneNote.</p>
+    </div>
+  </div>
+</section>
+
+    <!-- Projects Section -->
+    <section class="section" id="portfolio">
+      <h2> Forskjellige Prosjekter</h2>
+      <div class="projects-grid">
+        <div class="project-card animate-on-scroll">
+          <div class="project-tag">VG2 Entreprenørskap</div>
+          <h3>Kubens Matpakke</h3>
+          <p>Utviklet en "klikk og hent"-løsning for skolekantinen via Shopify under VG2 entreprenørskap. Designet logo, laget nettsiden og satte opp betalingsløsning.</p>
+          <div class="project-images">
+            <div class="project-image">📱</div>
+            <div class="project-image">🍽️</div>
+            <div class="project-image">💳</div>
+          </div>
+          <div class="project-stats">
+            <div class="stat">
+              <span class="stat-number">VG2</span>
+              <span class="stat-label">Entreprenørskap</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">3 mnd</span>
+              <span class="stat-label">Utvikling</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card animate-on-scroll delay-1">
+          <div class="project-tag">Mote & Design</div>
+          <h3>Eget Klesmerke</h3>
+          <p>Designet og laget mockups av egne kleskonsepter. Sendt til produksjon via Alibaba og mottatt samples tilbake.</p>
+          <div class="project-images">
+            <div class="project-image">👕</div>
+            <div class="project-image">🎨</div>
+            <div class="project-image">📦</div>
+          </div>
+          <div class="project-stats">
+            <div class="stat">
+              <span class="stat-number">Mockups</span>
+              <span class="stat-label">Designs</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">B2B</span>
+              <span class="stat-label">Produksjon</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card animate-on-scroll delay-2">
+          <div class="project-tag">Markedsføring</div>
+          <h3>Stolt Trening Videoer</h3>
+          <p>Laget markedsføringsvideoer for treningssenter. Publisert på TikTok, Instagram og Facebook med stor suksess.</p>
+          <div class="project-images">
+            <div class="project-image">🎬</div>
+            <div class="project-image">💪</div>
+            <div class="project-image">📱</div>
+          </div>
+          <div class="project-stats">
+            <div class="stat">
+              <span class="stat-number">77k+</span>
+              <span class="stat-label">Visninger</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">3</span>
+              <span class="stat-label">Plattformer</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card animate-on-scroll delay-3">
+          <div class="project-tag">Produktdesign</div>
+          <h3>Norwegia Emballasje (skole prosjekt)</h3>
+          <p>Redesignet emballasje for osteprodukter med fokus på brukervennlighet og miljøvennlighet. Mindre plastbruk og bedre lukking.</p>
+          <div class="project-images">
+            <div class="project-image">📦</div>
+            <div class="project-image">🧀</div>
+            <div class="project-image">♻️</div>
+          </div>
+          <div class="project-stats">
+            <div class="stat">
+              <span class="stat-number">60%</span>
+              <span class="stat-label">Mindre plast</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Gjenlukkbar</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card animate-on-scroll">
+          <div class="project-tag">App Design</div>
+          <h3>Matleverings App</h3>
+          <p>Designet en "klikk og hent" i Figma for matvarer med fokus på brukervennlighet og effektiv bestillingsprosess.</p>
+          <div class="project-images">
+            <div class="project-image">📱</div>
+            <div class="project-image">🛒</div>
+            <div class="project-image">🎨</div>
+          </div>
+          <div class="project-stats">
+            <div class="stat">
+              <span class="stat-number">UI/UX</span>
+              <span class="stat-label">Design</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">Figma</span>
+              <span class="stat-label">Prototype</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card animate-on-scroll delay-1">
+          <div class="project-tag">VG2 Markedsføring</div>
+          <h3>Snickers Reklame</h3>
+          <p>Markedsføringsoppgave hvor jeg gjenskapte en eksisterende Snickers-plakat for å teste mine designferdigheter.</p>
+          <div class="project-images">
+            <div class="project-image">🍫</div>
+            <div class="project-image">🎨</div>
+            <div class="project-image">📋</div>
+          </div>
+          <div class="project-stats">
+            <div class="stat">
+              <span class="stat-number">VG2</span>
+              <span class="stat-label">Oppgave</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">Design</span>
+              <span class="stat-label">Gjenskapt</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Other Projects Section -->
+<section class="other-projects">
+  <h3>Bilder</h3>
+  <div class="other-images" style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <div class="other-image" style="flex: 1 0 calc(33.33% - 10px);">
+      <img src="SNCIKERS REKLAME.png" alt="Snickers reklame" style="width: 100%; height: auto; display: block;">
+    </div>
+    <div class="other-image" style="flex: 1 0 calc(33.33% - 10px);">
+      <img src="ICE.png" alt="Is-prosjekt" style="width: 100%; height: auto; display: block;">
+    </div>
+    <div class="other-image" style="flex: 1 0 calc(33.33% - 10px);">
+      <img src="BRAIN.png" alt="Verktøyprosjekt" style="width: 100%; height: auto; display: block;">
+    </div>
+    <div class="other-image" style="flex: 1 0 calc(33.33% - 10px);">
+      <img src="KUBEN.png" alt="Verktøyprosjekt" style="width: 100%; height: auto; display: block;">
+    </div>
+    <div class="other-image" style="flex: 1 0 calc(33.33% - 10px);">
+      <img src="3D.png" alt="Verktøyprosjekt" style="width: 100%; height: auto; display: block;">
+    </div>
+    <div class="other-image" style="flex: 1 0 calc(33.33% - 10px);">
+      <img src="FIG.png" alt="Verktøyprosjekt" style="width: 100%; height: auto; display: block;">
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Contact Section -->
+    <section class="contact">
+      <h2>La Oss Jobbe Sammen!</h2>
+      <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">
+      </p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <span>📧</span>
+          <a href="mailto:contactariyen@gmail.com">contactariyen@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span>🔗</span>
+          <a href="https://github.com/ariyen" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Smooth scrolling for CTA button
+    document.querySelector('.cta-button').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('#portfolio').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+
+    // Animate elements on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
